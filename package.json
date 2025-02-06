@@ -2,23 +2,50 @@
   "name": "ludgi-graphx",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run prepare:dev && npm run start:dev",
+    "prepare:dev": "npm run postbuild",
+    "start:dev": "cross-env NODE_NO_WARNINGS=1 env-cmd -f .env nodemon --config nodemon.json --exec \"node --loader @swc-node/register/esm --experimental-specifier-resolution=node -r tsconfig-paths/register server/index.ts\"",
+    "preinstall": "npx prisma generate",
+    "prebuild": "node scripts/modifyPackageJson.cjs remove && npx prisma generate",
+    "postbuild": "node scripts/modifyPackageJson.cjs restore",
+    "build:server": "rimraf dist && swc server -d dist/ --copy-files",
+    "start:server": "node dist/server/index.js",
+    "build": "npm run prisma:generate && next build && npm run build:server",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/server": "^4.11.3",
+    "@graphql-codegen/typescript-graphql-request": "^6.2.0",
+    "@graphql-tools/merge": "^9.0.17",
+    "@graphql-tools/schema": "^10.0.16",
+    "cross-env": "^7.0.3",
+    "express": "4.18.2",
+    "graphql": "^16.10.0",
+    "graphql-tag": "^2.12.6",
+    "next": "15.1.6",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.1.6"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@graphql-codegen/cli": "^5.0.4",
+    "@graphql-codegen/typescript-operations": "^4.4.1",
+    "@swc-node/register": "^1.10.9",
+    "@swc/cli": "^0.6.0",
+    "@swc/core": "^1.10.14",
+    "@types/express": "4.17.21",
+    "@types/express-serve-static-core": "4.17.41",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "env-cmd": "^10.1.0",
+    "ludgi-cli": "^3.0.3",
+    "nodemon": "^3.1.9",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.7.3"
   }
 }

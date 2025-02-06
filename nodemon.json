@@ -1,0 +1,7 @@
+{
+  "watch": ["server/**/*"],
+  "ext": "ts,js,json",
+  "events": {
+    "restart": "node scripts/resetServerStatus.cjs"
+  }
+}
