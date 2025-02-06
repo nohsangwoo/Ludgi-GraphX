@@ -30,7 +30,7 @@ Automate GraphQL API Generation with Ludgi GraphX
 
 Before you begin, ensure you have the following installed:
 
-- **Node.js** (v16 or later)
+- **Node.js** (v22 or later)
 - **npm** (or yarn/pnpm)
 - **Ludgi CLI** (installed automatically with this project)
 
@@ -181,8 +181,8 @@ Simplify your **GraphQL API development** with **Ludgi GraphX**. 🚀
 ```bash
 git clone https://github.com/nohsangwoo/Ludgi-GraphX.git
 cd Ludgi-GraphX
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 Ready to build scalable, automated GraphQL APIs? **Start now with Ludgi GraphX!** 💡
