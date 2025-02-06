@@ -1,36 +1,172 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ludgi GraphX
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+██╗     ██╗   ██╗██████╗  ██████╗ ██╗
+██║     ██║   ██║██╔══██╗██╔════╝ ██║
+██║     ██║   ██║██║  ██║██║  ███╗██║
+██║     ██║   ██║██║  ██║██║   ██║██║
+███████╗╚██████╔╝██████╔╝╚██████╔╝██║
+╚══════╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝
+Automate GraphQL API Generation with Ludgi GraphX
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Ludgi GraphX - The Ultimate GraphQL API Generator
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Ludgi GraphX** is a powerful and seamless GraphQL API automation tool built on **Next.js** and **Express**. It leverages the **[Ludgi CLI](https://www.npmjs.com/package/ludgi-cli)** to generate and manage GraphQL queries and mutations effortlessly, saving development time while ensuring a structured and maintainable GraphQL architecture.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌟 Why Ludgi GraphX?
 
-To learn more about Next.js, take a look at the following resources:
+- **🚀 Full Automation** - Automatically generate all GraphQL queries and mutations with a single command.
+- **🔥 Express + Next.js Power** - Combines the best of **Express** (backend) and **Next.js** (frontend) for seamless integration.
+- **⚡ Fast Development** - Rapidly prototype and manage GraphQL resources without repetitive manual coding.
+- **🔧 Intuitive CLI Integration** - Uses the robust **Ludgi CLI** for query/mutation generation, listing, and deletion.
+- **🛠️ Developer-Friendly** - Provides interactive and animated CLI feedback for an enhanced experience.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📌 Prerequisites
 
-## Deploy on Vercel
+Before you begin, ensure you have the following installed:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Node.js** (v16 or later)
+- **npm** (or yarn/pnpm)
+- **Ludgi CLI** (installed automatically with this project)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📥 Installation
+
+To get started with **Ludgi GraphX**, install it as a dependency:
+
+```bash
+npx create-ludgi-graphx my-graphql-project
+cd my-graphql-project
+npm install
+```
+
+This will scaffold a complete **GraphQL API automation** project with Express and Next.js.
+
+---
+
+## ⚙️ Usage
+
+### 1️⃣ Generate a GraphQL Query or Mutation
+
+Use **Ludgi CLI** to generate a new GraphQL query or mutation file:
+
+```bash
+npx ludgi-cli -n <queryOrMutationName>
+```
+
+Example:
+
+```bash
+npx ludgi-cli -n getUserProfile
+```
+
+This will create a new GraphQL file inside the **GraphQL directory** of your project.
+
+---
+
+### 2️⃣ List All GraphQL Queries & Mutations
+
+```bash
+npx ludgi-cli -l
+```
+
+This command will display all GraphQL queries and mutations present in your project.
+
+---
+
+### 3️⃣ Delete a GraphQL Query or Mutation
+
+```bash
+npx ludgi-cli -d <queryOrMutationName>
+```
+
+Example:
+
+```bash
+npx ludgi-cli -d getUserProfile
+```
+
+This removes the specified GraphQL file from your project.
+
+---
+
+## 🏗️ Project Structure
+
+Ludgi GraphX provides a structured GraphQL project setup:
+
+```
+my-graphql-project/
+│── graphql/                # Auto-generated GraphQL queries/mutations
+│   ├── queries/
+│   ├── mutations/
+│── pages/api/graphql.js    # GraphQL API handler for Next.js
+│── server/                 # Express-based GraphQL server
+│── package.json            # Project dependencies and scripts
+```
+
+---
+
+## 📌 Example GraphQL Query
+
+When you generate a query using Ludgi CLI, it follows this structure:
+
+```graphql
+query GetUserProfile($id: ID!) {
+  user(id: $id) {
+    id
+    name
+    email
+  }
+}
+```
+
+Similarly, mutations are structured as:
+
+```graphql
+mutation UpdateUser($id: ID!, $name: String!) {
+  updateUser(id: $id, name: $name) {
+    id
+    name
+  }
+}
+```
+
+---
+
+## 🚀 Running the Project
+
+### Start ludgi-graphx server
+```bash
+npm run dev
+```
+
+---
+
+## 🌍 API Endpoints
+
+| Method | Endpoint           | Description |
+|--------|-------------------|-------------|
+| `POST` | `/api/graphql`    | GraphQL API Handler |
+| `GET`  | `/api/ping`     | Health Check |
+
+---
+
+## 🌟 Get Started Today!
+
+Simplify your **GraphQL API development** with **Ludgi GraphX**. 🚀
+
+```bash
+git clone https://github.com/nohsangwoo/Ludgi-GraphX.git
+cd Ludgi-GraphX
+npm install
+npm run dev
+```
+
+Ready to build scalable, automated GraphQL APIs? **Start now with Ludgi GraphX!** 💡
+
