@@ -3,26 +3,23 @@ import { mergeResolvers, mergeTypeDefs } from '@graphql-tools/merge'
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { GraphQLSchema } from 'graphql'
 
-
 import dogByNameResolvers from './dogByName/dogByName.resolvers'
 import getDogsResolvers from './getDogs/getDogs.resolvers'
-
+import typesResolvers from './types/types.resolvers'
 import dogByNameTypeDefs from './dogByName/dogByName.typeDefs'
 import getDogsTypeDefs from './getDogs/getDogs.typeDefs'
-import typesResolvers from './types/types.resolvers'
 import typesTypeDefs from './types/types.typeDefs'
 
-
 export const resolvers = mergeResolvers([
-  typesResolvers,
   dogByNameResolvers,
   getDogsResolvers,
+  typesResolvers,
 ])
 
 export const typeDefs = mergeTypeDefs([
-  typesTypeDefs,
   dogByNameTypeDefs,
   getDogsTypeDefs,
+  typesTypeDefs,
 ])
 
 let schema: GraphQLSchema;
