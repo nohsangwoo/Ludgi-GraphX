@@ -118,13 +118,27 @@ This removes the specified GraphQL file from your project.
 Ludgi GraphX provides a structured GraphQL project setup:
 
 ```
-my-graphql-project/
-│── graphql/                # Auto-generated GraphQL queries/mutations
-│   ├── queries/
-│   ├── mutations/
-│── pages/api/graphql.js    # GraphQL API handler for Next.js
-│── server/                 # Express-based GraphQL server
-│── package.json            # Project dependencies and scripts
+ludgi-graphx/
+<!-- nextjs -->
+│── src/
+│   ├── app/
+│   ├── generated/graphql.ts
+│   ├── graphql/apis.ts
+│   ├── lib/
+
+
+<!-- express -->
+│── server/                # Auto-generated GraphQL queries/mutations
+│   ├── generated/
+│   ├── graphql/
+│       │── queries/
+│       │── mutations/
+│       │── schema.ts
+│       │── type.d.ts
+
+│   ├── helper/
+│   ├── lib/
+│   ├── index.ts
 ```
 
 ---
