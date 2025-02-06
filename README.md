@@ -50,6 +50,23 @@ This will scaffold a complete **GraphQL API automation** project with Express an
 
 ---
 
+⚠️ Prerequisites:
+This application requires the following Docker containers to be running:
+
+- Redis
+
+The application will not function properly unless these services are running.
+
+**Note:** If you want to use subscriptions with Ludgi CLI, it is configured to work based on Redis. Therefore, make sure Redis is running to enable this feature.
+
+---
+
+### Start Redis Container
+
+```bash
+sh docker-compose/redis/up.sh
+```
+
 ## ⚙️ Usage
 
 ### 1️⃣ Generate a GraphQL Query or Mutation
